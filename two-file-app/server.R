@@ -2,6 +2,16 @@
 
 server <- function(input, output){
   
+  # render leaflet map with palmer station location ----
+  output$palmer_station_map <- renderLeaflet({
+    leaflet() %>%
+      addProviderTiles(providers$OpenStreetMap) %>% 
+      addMarkers(lng = -64.05384063012775,
+                 lat = -64.77413239299318,
+                 popup = "Palmer Station")
+    
+  }) #end Palmer station map
+  
   # filter for island ----
   island_df <- reactive({
     

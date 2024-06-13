@@ -7,7 +7,24 @@ ui <- navbarPage(
   # Page 1 - About this app
   tabPanel(title = "About this App",
            
-           "Background about the app" #replace with content
+           # adding fluidRow with about text ----
+           fluidRow(
+             # white space 
+             column(1),
+             # use 10 columns for about text
+             column(10, includeMarkdown("text/about.md")),
+             # end with white space
+             column(1)
+           ), #end of fluidRow with About this app text
+           
+           fluidRow(
+             # white space
+             column(2),
+             # output for leaflet map
+             column(8, leafletOutput(outputId = "palmer_station_map")),
+             # white space
+             column(2)
+           ) #end fluidRow with leaflet map
            
            ), #end of page 1 - About this app
   
